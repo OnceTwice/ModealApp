@@ -36,6 +36,5 @@ public class JoinFormActivity extends AppCompatActivity {
         if(requestCode == 1000 && resultCode ==RESULT_OK){
             Toast.makeText(JoinFormActivity.this, "완료!!!!",Toast.LENGTH_SHORT).show();
         }
-
     }
 }

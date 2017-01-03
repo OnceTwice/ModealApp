@@ -1,6 +1,7 @@
 package com.ff.modealapp.maps;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -13,8 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ff.modealapp.JoinFormActivity;
 import com.ff.modealapp.R;
 import com.ff.modealapp.maps.search.Item;
+import com.ff.modealapp.maps.search.JoinMapInfoVo;
 import com.ff.modealapp.maps.search.OnFinishSearchListener;
 import com.ff.modealapp.maps.search.Searcher;
 
@@ -215,6 +218,9 @@ public class SearchShopToJoinActivity extends FragmentActivity implements MapVie
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
         Item item = mTagItemMap.get(mapPOIItem.getTag());
+
+        JoinMapInfoVo joinMapInfoVo = new JoinMapInfoVo();
+
         StringBuilder sb = new StringBuilder();
         sb.append("title=").append(item.title).append("\n");
         sb.append("imageUrl=").append(item.imageUrl).append("\n");
@@ -228,6 +234,22 @@ public class SearchShopToJoinActivity extends FragmentActivity implements MapVie
         sb.append("distance=").append(item.distance).append("\n");
         sb.append("direction=").append(item.direction).append("\n");
         Toast.makeText(this, sb.toString(), Toast.LENGTH_SHORT).show();
+
+        joinMapInfoVo.setTitle(item.title);
+        joinMapInfoVo.setImageUrl(item.imageUrl);
+        joinMapInfoVo.setAddress(item.address);
+        joinMapInfoVo.setNewAddress(item.newAddress);
+        joinMapInfoVo.setZipcode(item.zipcode);
+        joinMapInfoVo.setPhone(item.phone);
+        joinMapInfoVo.setCategory(item.category);
+        joinMapInfoVo.setLongitude(String.valueOf(item.longitude));
+        joinMapInfoVo.setLatitude(String.valueOf(item.latitude));
+
+        Intent intent = new Intent(SearchShopToJoinActivity.this, JoinFormActivity.class);
+        intent.putExtra("joinMapInfoVo", joinMapInfoVo.toString());
+        Log.d("joinMapInfoVo====>", ""+joinMapInfoVo);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     @Override

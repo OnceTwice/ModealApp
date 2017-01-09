@@ -246,8 +246,10 @@ public class SearchShopToJoinActivity extends FragmentActivity implements MapVie
         joinMapInfoVo.setLatitude(String.valueOf(item.latitude));
 
         Intent intent = new Intent(SearchShopToJoinActivity.this, JoinFormActivity.class);
-        intent.putExtra("joinMapInfoVo", joinMapInfoVo.toString());
-        Log.d("joinMapInfoVo====>", ""+joinMapInfoVo);
+
+        intent.putExtra("joinMapInfoVo", joinMapInfoVo);
+
+        Log.d("joinMapInfoVo====>", "" + joinMapInfoVo);
         setResult(RESULT_OK, intent);
         finish();
     }

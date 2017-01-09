@@ -14,10 +14,13 @@
         <activity android:name=".maps.SearchShopToJoinActivity" />
         <activity android:name=".JoinFormActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".maps.SearchShopToPointActivity" />
+        <activity android:name=".SearchExampleActivity"></activity>
     </application>
 
 </manifest>

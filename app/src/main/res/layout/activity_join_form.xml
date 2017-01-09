@@ -65,7 +65,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_shopname"
@@ -78,7 +78,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_ph"
@@ -90,7 +90,7 @@
         android:layout_alignStart="@+id/textView_shopname" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_address"
@@ -102,23 +102,36 @@
         android:layout_alignStart="@+id/textView_ph" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_coodiX"
         android:layout_alignBaseline="@+id/textView7"
         android:layout_alignBottom="@+id/textView7"
-        android:layout_alignLeft="@+id/button_getInfo"
-        android:layout_alignStart="@+id/button_getInfo" />
+        android:layout_alignLeft="@+id/textView_address"
+        android:layout_alignStart="@+id/textView_address"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="TextView"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_CoodiY"
-        android:layout_toRightOf="@+id/textView_coodiX"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp"
-        android:layout_alignBottom="@+id/textView_coodiX" />
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/textView_coodiX"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/textView_coodiX"
+        android:layout_alignStart="@+id/textView_coodiX" />
+
+    <Button
+        android:text="범위검색"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_getInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:id="@+id/button_rangeform" />
 
 </RelativeLayout>

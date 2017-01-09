@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="준킨스"
+            android:text="비트교육센터"
             android:ems="10" >
 
             <requestFocus />

@@ -1,10 +1,12 @@
 package com.ff.modealapp.maps.search;
 
+import java.io.Serializable;
+
 /**
  * Created by BIT on 2017-01-03.
  */
 
-public class JoinMapInfoVo {
+public class JoinMapInfoVo implements Serializable {
     private String title;
     private String imageUrl;
     private String address;

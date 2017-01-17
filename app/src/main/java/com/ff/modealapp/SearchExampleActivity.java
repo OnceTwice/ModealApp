@@ -23,8 +23,8 @@ public class SearchExampleActivity extends AppCompatActivity {
         ((SeekBar) findViewById(R.id.seekBar)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-                ((TextView) findViewById(R.id.textView)).setText("주변반경 : " + progress / 10);
-                result = String.valueOf(progress / 10);
+                ((TextView) findViewById(R.id.textView)).setText("주변반경 : " + progress * 10);
+                result = String.valueOf(progress * 10);
             }
 
             @Override

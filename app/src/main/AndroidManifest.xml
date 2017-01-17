@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".maps.SearchShopToPointActivity" />
-        <activity android:name=".SearchExampleActivity"></activity>
+        <activity android:name=".SearchExampleActivity" />
+        <activity android:name=".maps.SearchPointToAddress"></activity>
     </application>
 
 </manifest>

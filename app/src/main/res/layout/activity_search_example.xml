@@ -10,42 +10,129 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ff.modealapp.SearchExampleActivity">
 
-    <Button
-        android:text="검색"
+    <TextView
+        android:text="주소 : "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_search"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/button_findAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView6" />
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView6"
+        android:id="@+id/textView_address"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6" />
+
+    <TextView
+        android:text="      "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_lange"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp" />
+
+    <TextView
+        android:text="        "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView10"
+        android:layout_toRightOf="@+id/textView10"
+        android:layout_toEndOf="@+id/textView10"
+        android:id="@+id/textView_latitude" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="주소 입력"
+        android:text="광주"
+        android:ems="10"
+        android:id="@+id/editText_address"
+        android:layout_alignBaseline="@+id/button_findAddress"
+        android:layout_alignBottom="@+id/button_findAddress"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/button_findAddress"
+        android:layout_toStartOf="@+id/button_findAddress" />
+
+    <Button
+        android:text="주소찾기"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_findAddress"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="longitude :"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/textView_address"
+        android:layout_toLeftOf="@+id/textView_longitude"
+        android:layout_toStartOf="@+id/textView_longitude"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:text="          "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_longitude"
+        android:layout_alignBaseline="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="latitude : "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_below="@+id/textView_longitude"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="16dp" />
 
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/seekBar"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/button_search"
+        android:layout_below="@+id/textView_latitude"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Volume : 0"
+        android:text="범위(m) :"
         android:id="@+id/textView"
-        android:layout_below="@+id/button_search"
-        android:layout_toLeftOf="@+id/button_search"
-        android:layout_toStartOf="@+id/button_search"
-        android:layout_marginRight="85dp"
-        android:layout_marginEnd="85dp" />
+        android:layout_below="@+id/seekBar"
+        android:layout_toLeftOf="@+id/textView_longitude"
+        android:layout_toStartOf="@+id/textView_longitude"
+        android:layout_marginTop="21dp" />
 
-    <TextView
-        android:text="ongitude : 127 ,  latitude : 37"
+    <Button
+        android:text="확인"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="94dp"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/button_search"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp" />
 
 </RelativeLayout>

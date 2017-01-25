@@ -1,9 +1,5 @@
 package com.ff.modealapp.vo;
 
-/**
- * Created by BIT on 2017-01-16.
- */
-
 public class ItemVo {
 
     private String mountain;
@@ -19,38 +15,13 @@ public class ItemVo {
     private String localName_2;
     private String localName_3;
     private String localName_1;
-    private String lat;
-    private String point_x;
-    private String lng;
+    private Double lat;
+    private Double point_x;
+    private Double lng;
     private String zone_no;
     private String subAddress;
     private String id;
-    private String point_y;
-
-    public ItemVo(String mountain, String mainAddress, String point_wx, String point_wy, String isNewAddress, String buildingAddress, String title,
-                  String placeName, String zipcode, String newAddress, String localName_2, String localName_3, String localName_1, String lat,
-                  String point_x, String lng, String zone_no, String subAddress, String id, String point_y) {
-        this.mountain = mountain;
-        this.mainAddress = mainAddress;
-        this.point_wx = point_wx;
-        this.point_wy = point_wy;
-        this.isNewAddress = isNewAddress;
-        this.buildingAddress = buildingAddress;
-        this.title = title;
-        this.placeName = placeName;
-        this.zipcode = zipcode;
-        this.newAddress = newAddress;
-        this.localName_2 = localName_2;
-        this.localName_3 = localName_3;
-        this.localName_1 = localName_1;
-        this.lat = lat;
-        this.point_x = point_x;
-        this.lng = lng;
-        this.zone_no = zone_no;
-        this.subAddress = subAddress;
-        this.id = id;
-        this.point_y = point_y;
-    }
+    private Double point_y;
 
     public String getMountain() {
         return mountain;
@@ -156,27 +127,27 @@ public class ItemVo {
         this.localName_1 = localName_1;
     }
 
-    public String getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
-    public String getPoint_x() {
+    public Double getPoint_x() {
         return point_x;
     }
 
-    public void setPoint_x(String point_x) {
+    public void setPoint_x(Double point_x) {
         this.point_x = point_x;
     }
 
-    public String getLng() {
+    public Double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(Double lng) {
         this.lng = lng;
     }
 
@@ -204,37 +175,22 @@ public class ItemVo {
         this.id = id;
     }
 
-    public String getPoint_y() {
+    public Double getPoint_y() {
         return point_y;
     }
 
-    public void setPoint_y(String point_y) {
+    public void setPoint_y(Double point_y) {
         this.point_y = point_y;
     }
 
     @Override
     public String toString() {
-        return "ItemVo{" +
-                "mountain='" + mountain + '\'' +
-                ", mainAddress='" + mainAddress + '\'' +
-                ", point_wx='" + point_wx + '\'' +
-                ", point_wy='" + point_wy + '\'' +
-                ", isNewAddress='" + isNewAddress + '\'' +
-                ", buildingAddress='" + buildingAddress + '\'' +
-                ", title='" + title + '\'' +
-                ", placeName='" + placeName + '\'' +
-                ", zipcode='" + zipcode + '\'' +
-                ", newAddress='" + newAddress + '\'' +
-                ", localName_2='" + localName_2 + '\'' +
-                ", localName_3='" + localName_3 + '\'' +
-                ", localName_1='" + localName_1 + '\'' +
-                ", lat='" + lat + '\'' +
-                ", point_x='" + point_x + '\'' +
-                ", lng='" + lng + '\'' +
-                ", zone_no='" + zone_no + '\'' +
-                ", subAddress='" + subAddress + '\'' +
-                ", id='" + id + '\'' +
-                ", point_y='" + point_y + '\'' +
-                '}';
+        return "ItemVo [mountain=" + mountain + ", mainAddress=" + mainAddress + ", point_wx=" + point_wx
+                + ", point_wy=" + point_wy + ", isNewAddress=" + isNewAddress + ", buildingAddress=" + buildingAddress
+                + ", title=" + title + ", placeName=" + placeName + ", zipcode=" + zipcode + ", newAddress="
+                + newAddress + ", localName_2=" + localName_2 + ", localName_3=" + localName_3 + ", localName_1="
+                + localName_1 + ", lat=" + lat + ", point_x=" + point_x + ", lng=" + lng + ", zone_no=" + zone_no
+                + ", subAddress=" + subAddress + ", id=" + id + ", point_y=" + point_y + "]";
     }
+
 }

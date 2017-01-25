@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ff.modealapp.R;
@@ -24,7 +25,8 @@ import net.daum.mf.map.api.MapView;
 import java.util.List;
 
 public class SearchShopToPointActivity extends AppCompatActivity {
-
+    Double longitude;
+    Double latitude;
     private MapsService mapsService = new MapsService();
     private MapView mapView;
 
@@ -34,38 +36,37 @@ public class SearchShopToPointActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_shop_to_point);
 
         Intent intent = new Intent(this.getIntent());
-        String longitude = intent.getStringExtra("longitude");
-        String latitude = intent.getStringExtra("latitude");
-        String result = intent.getStringExtra("result");
+        longitude = Double.valueOf(intent.getStringExtra("longitude"));
+        latitude = Double.valueOf(intent.getStringExtra("latitude"));
+        String range = intent.getStringExtra("range");
 
         Log.d("longitude=====>", "" + longitude);
         Log.d("latitude=====>", "" + latitude);
-        Log.d("result=====>", "" + result);
+        Log.d("result=====>", range);
 
         TextView textView = (TextView) findViewById(R.id.textView_response);
-        textView.setText(result);
+        textView.setText(range);
 
 //------------------------------------------------------------------------
-
 
         mapView = new MapView(this);
         mapView.setDaumMapApiKey(MapApiConst.DAUM_MAPS_ANDROID_APP_API_KEY);
         //mapView.addCircle();
 
-        ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view_point);
-        mapViewContainer.addView(mapView);
-//        RelativeLayout container = (RelativeLayout) findViewById(R.id.map_view_point);
-//        container.addView(mapView);
+        // ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view_point);
+        // mapViewContainer.addView(mapView);
+        RelativeLayout container = (RelativeLayout) findViewById(R.id.map_view_point);
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);
+        container.addView(mapView);
 
         MapCircle circle = new MapCircle(
-                MapPoint.mapPointWithGeoCoord(Double.valueOf(longitude), Double.valueOf(latitude)),
-                Integer.valueOf(result),
+                MapPoint.mapPointWithGeoCoord(latitude, longitude),
+                Integer.valueOf(range),
                 Color.argb(25, 255, 0, 0),
                 Color.argb(25, 255, 0, 0));
         circle.setTag(1234);
-
         mapView.addCircle(circle);
-        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(Double.valueOf(longitude), Double.valueOf(latitude)), true);
+        //mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);
         //mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(Double.valueOf(longitude), Double.valueOf(latitude)), 2, true);
 
         new FetchShopListAsyncTask().execute();
@@ -90,16 +91,15 @@ public class SearchShopToPointActivity extends AppCompatActivity {
                 ShopVo myShopVo = shopVos.get(i);
                 shopVos.set(i, myShopVo);
                 Log.d("--usersVo[" + (i + 1) + "번째]-->", "" + shopVos.get(i));
-
                 //------------------풍선 생성---------------------------------
                 showResult(shopVos);
 
-
+                mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);//화면이동
             }
-            Log.d("리스트2번째 값 출력->", ""+shopVos.get(1));
             super.onSuccess(shopVos);
         }
     }
+
     private void showResult(List<ShopVo> shopVoList) {
         MapPointBounds mapPointBounds = new MapPointBounds();
         for (int i = 0; i < shopVoList.size(); i++) {

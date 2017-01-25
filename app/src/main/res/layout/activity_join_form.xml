@@ -118,24 +118,6 @@
         android:layout_alignStart="@+id/textView_coodiX" />
 
     <Button
-        android:text="범위검색(DB)"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_rangeform"
-        android:layout_below="@+id/button_getInfo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp" />
-
-    <Button
-        android:text="JSON List 가져오기(DB)"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:id="@+id/button_json"
-        android:layout_below="@+id/button_rangeform"
-        android:layout_centerHorizontal="true" />
-
-    <Button
         android:text="정보 가져오기(DAUM_API)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -144,34 +126,34 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="주소검색(서버)"
+        android:text="JSON List 가져오기(DB)"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_address"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="광주광역시 남구 월산동"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/button_json"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
-
-    <TextView
-        android:text="주소 : "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:layout_alignBaseline="@+id/editText"
-        android:layout_alignBottom="@+id/editText"
+        android:id="@+id/button_json"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/button_getInfo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="내 위치(지속)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_mygps"
+        android:layout_alignBaseline="@+id/button_json"
+        android:layout_alignBottom="@+id/button_json"
+        android:layout_toRightOf="@+id/button_json"
+        android:layout_toEndOf="@+id/button_json"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp" />
+
+    <Button
+        android:text="범위검색(DB)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_rangeform"
+        android:layout_below="@+id/button_json"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp" />
 
 </RelativeLayout>

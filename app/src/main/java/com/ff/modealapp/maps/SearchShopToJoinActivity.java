@@ -214,7 +214,6 @@ public class SearchShopToJoinActivity extends FragmentActivity implements MapVie
         }
     }
 
-
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
         Item item = mTagItemMap.get(mapPOIItem.getTag());
@@ -248,7 +247,6 @@ public class SearchShopToJoinActivity extends FragmentActivity implements MapVie
         Intent intent = new Intent(SearchShopToJoinActivity.this, JoinFormActivity.class);
 
         intent.putExtra("joinMapInfoVo", joinMapInfoVo);
-
         Log.d("joinMapInfoVo====>", "" + joinMapInfoVo);
         setResult(RESULT_OK, intent);
         finish();

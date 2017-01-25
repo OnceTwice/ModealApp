@@ -7,21 +7,21 @@ import java.util.List;
  */
 
 public class ChannelVo {
-    private int totalCount;
+    private String totalCount;
     private String link;
-    private int result;
+    private String result;
     private String generator;
-    private int pageCount;
+    private String pageCount;
     private String lastBuildDate;
     private List<ItemVo> item;
     private String title;
     private String description;
 
-    public int getTotalCount() {
+    public String getTotalCount() {
         return totalCount;
     }
 
-    public void setTotalCount(int totalCount) {
+    public void setTotalCount(String totalCount) {
         this.totalCount = totalCount;
     }
 
@@ -33,11 +33,11 @@ public class ChannelVo {
         this.link = link;
     }
 
-    public int getResult() {
+    public String getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(String result) {
         this.result = result;
     }
 
@@ -49,11 +49,11 @@ public class ChannelVo {
         this.generator = generator;
     }
 
-    public int getPageCount() {
+    public String getPageCount() {
         return pageCount;
     }
 
-    public void setPageCount(int pageCount) {
+    public void setPageCount(String pageCount) {
         this.pageCount = pageCount;
     }
 
@@ -91,16 +91,9 @@ public class ChannelVo {
 
     @Override
     public String toString() {
-        return "ChannelVo{" +
-                "totalCount=" + totalCount +
-                ", link='" + link + '\'' +
-                ", result=" + result +
-                ", generator='" + generator + '\'' +
-                ", pageCount=" + pageCount +
-                ", lastBuildDate='" + lastBuildDate + '\'' +
-                ", item=" + item +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "ChannelVo [totalCount=" + totalCount + ", link=" + link + ", result=" + result + ", generator="
+                + generator + ", pageCount=" + pageCount + ", lastBuildDate=" + lastBuildDate + ", item=" + item
+                + ", title=" + title + ", description=" + description + "]";
     }
+
 }

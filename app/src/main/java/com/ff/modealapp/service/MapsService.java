@@ -4,11 +4,12 @@ package com.ff.modealapp.service;
 import android.util.Log;
 
 import com.ff.modealapp.network.JSONResult;
-import com.ff.modealapp.vo.ChannelVo;
+import com.ff.modealapp.vo.AddressVo;
 import com.ff.modealapp.vo.ShopVo;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 
 import java.io.Reader;
 import java.net.HttpURLConnection;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class MapsService {
 
-    public JSONAddress fetchAddress(String addr) {
+    public AddressVo fetchAddress(String addr) {
         String url = "http://163.44.171.41:8080/modeal/map/addresstopoint";
         HttpRequest httpRequest = HttpRequest.get(url);
         httpRequest.contentType(HttpRequest.CONTENT_TYPE_FORM);
@@ -73,27 +74,6 @@ public class MapsService {
         return v;
     }
 
-
-
-    public class JSONAddress {
-        private ChannelVo channel;
-
-        public ChannelVo getChannel() {
-            return channel;
-        }
-
-        public void setChannel(ChannelVo channel) {
-            this.channel = channel;
-        }
-
-        @Override
-        public String toString() {
-            return "JSONAddress{" +
-                    "channel=" + channel +
-                    '}';
-        }
-    }
-
   /*  private abstract class JSONAddress<channel> {
         private channel channel;
 
@@ -114,7 +94,7 @@ public class MapsService {
         }
     }*/
 
-    private class JSONResultAddress extends JSONResult<JSONAddress> {
+    private class JSONResultAddress extends JSONResult<AddressVo> {
 
     /*
     JSON 문자열을 자바 객체로 변환

@@ -1,34 +1,18 @@
 package com.ff.modealapp.vo;
 
-/**
- * Created by BIT on 2017-01-16.
- */
+public class AddressVo {
+    private ChannelVo channel;
 
-public class AddressVo{
-    private String lat;
-    private String lng;
-
-    public String getLat() {
-        return lat;
+    public ChannelVo getChannel() {
+        return channel;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
-    public String getLng() {
-        return lng;
-    }
-
-    public void setLng(String lng) {
-        this.lng = lng;
+    public void setChannel(ChannelVo channel) {
+        this.channel = channel;
     }
 
     @Override
     public String toString() {
-        return "AddressVo{" +
-                "lat='" + lat + '\'' +
-                ", lng='" + lng + '\'' +
-                '}';
+        return "JSONAddress{" + "channel=" + channel + '}';
     }
 }

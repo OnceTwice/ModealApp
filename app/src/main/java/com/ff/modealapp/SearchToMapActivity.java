@@ -6,17 +6,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.ff.modealapp.listformat.AddressListArrayAdapter;
 import com.ff.modealapp.maps.MapApiConst;
 
 import net.daum.mf.map.api.MapPoint;
+import net.daum.mf.map.api.MapReverseGeoCoder;
 import net.daum.mf.map.api.MapView;
 
 import static com.ff.modealapp.AddressListActivity.FinishAddressListActivity;
+import static com.ff.modealapp.SearchExampleActivity.FinishSearchExampleActivity;
 
-public class SearchToMapActivity extends AppCompatActivity {
+public class SearchToMapActivity extends AppCompatActivity implements MapReverseGeoCoder.ReverseGeoCodingResultListener {
     private MapView mapView;
     Double longitude;
     Double latitude;
@@ -41,25 +41,34 @@ public class SearchToMapActivity extends AppCompatActivity {
         findViewById(R.id.fab_select).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("hello!!!!!!!!!!!!!!!!!!!!!!!");
-                Intent returnIntent = new Intent(SearchToMapActivity.this, SearchExampleActivity.class);
+                MapPoint thisMapPoint = MapPoint.mapPointWithGeoCoord(mapView.getMapCenterPoint().getMapPointGeoCoord().latitude, mapView.getMapCenterPoint().getMapPointGeoCoord().longitude);
+                MapReverseGeoCoder mapReverseGeoCoder = new MapReverseGeoCoder(MapApiConst.DAUM_MAPS_ANDROID_APP_API_KEY, thisMapPoint, SearchToMapActivity.this, SearchToMapActivity.this);
 
-
-                returnIntent.putExtra("lat", mapView.getMapCenterPoint().getMapPointGeoCoord().latitude);
-                returnIntent.putExtra("lng", mapView.getMapCenterPoint().getMapPointGeoCoord().longitude);
-                returnIntent.putExtra("title", "안녕!!!");
-
-                /*setResult(1000, returnIntent);*/
-
-                startActivity(returnIntent);
-
-                FinishAddressListActivity.finish();
-                finish();
-
-
+                mapReverseGeoCoder.startFindingAddress();
             }
         });
+    }
 
-        //getMapCenterPoint--> 화면 중심점을 조회
+    @Override
+    public void onReverseGeoCoderFoundAddress(MapReverseGeoCoder mapReverseGeoCoder, String s) {
+
+        Intent returnIntent = new Intent(SearchToMapActivity.this, SearchExampleActivity.class);
+
+        returnIntent.putExtra("lat", String.valueOf(mapView.getMapCenterPoint().getMapPointGeoCoord().latitude));
+        returnIntent.putExtra("lng", String.valueOf(mapView.getMapCenterPoint().getMapPointGeoCoord().longitude));
+        returnIntent.putExtra("title", s);
+
+        FinishAddressListActivity.finish();
+        FinishSearchExampleActivity.finish();
+
+        startActivity(returnIntent);
+
+        Log.d("엑티비티 꺼짐-->", "OK!!!!!!!!");
+        finish();
+    }
+
+    @Override
+    public void onReverseGeoCoderFailedToFindAddress(MapReverseGeoCoder mapReverseGeoCoder) {
+
     }
 }

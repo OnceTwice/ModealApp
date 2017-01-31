@@ -13,7 +13,7 @@ public class ChannelVo {
     private String generator;
     private String pageCount;
     private String lastBuildDate;
-    private List<ItemVo> item;
+    private List<DaumItemVo> item;
     private String title;
     private String description;
 
@@ -65,11 +65,11 @@ public class ChannelVo {
         this.lastBuildDate = lastBuildDate;
     }
 
-    public List<ItemVo> getItem() {
+    public List<DaumItemVo> getItem() {
         return item;
     }
 
-    public void setItem(List<ItemVo> item) {
+    public void setItem(List<DaumItemVo> item) {
         this.item = item;
     }
 
@@ -91,9 +91,16 @@ public class ChannelVo {
 
     @Override
     public String toString() {
-        return "ChannelVo [totalCount=" + totalCount + ", link=" + link + ", result=" + result + ", generator="
-                + generator + ", pageCount=" + pageCount + ", lastBuildDate=" + lastBuildDate + ", item=" + item
-                + ", title=" + title + ", description=" + description + "]";
+        return "ChannelVo{" +
+                "totalCount='" + totalCount + '\'' +
+                ", link='" + link + '\'' +
+                ", result='" + result + '\'' +
+                ", generator='" + generator + '\'' +
+                ", pageCount='" + pageCount + '\'' +
+                ", lastBuildDate='" + lastBuildDate + '\'' +
+                ", item=" + item +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
-
 }

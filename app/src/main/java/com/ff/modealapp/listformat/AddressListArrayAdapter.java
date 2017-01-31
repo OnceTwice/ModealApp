@@ -14,12 +14,11 @@ import android.widget.TextView;
 import com.ff.modealapp.R;
 import com.ff.modealapp.AddressListActivity;
 import com.ff.modealapp.SearchToMapActivity;
-import com.ff.modealapp.maps.SearchShopToJoinActivity;
-import com.ff.modealapp.vo.ItemVo;
+import com.ff.modealapp.vo.DaumItemVo;
 
 import java.util.List;
 
-public class AddressListArrayAdapter extends ArrayAdapter<ItemVo> {
+public class AddressListArrayAdapter extends ArrayAdapter<DaumItemVo> {
 
     private LayoutInflater layoutInflater;
     private Context context;
@@ -40,12 +39,12 @@ public class AddressListArrayAdapter extends ArrayAdapter<ItemVo> {
         }
         //내부 ArrayList에서 해당 포지션의 User 객체를 받아옴
 
-        final ItemVo ItemVo = getItem(position);
+        final DaumItemVo daumItemVo = getItem(position);
 
 
         //이름 세팅
         TextView textViewId = (TextView) view.findViewById(R.id.textView_address);
-        textViewId.setText(ItemVo.getTitle());
+        textViewId.setText(daumItemVo.getTitle());
         //버튼 세팅이다
 
 
@@ -53,13 +52,13 @@ public class AddressListArrayAdapter extends ArrayAdapter<ItemVo> {
             @Override
             public void onClick(View view) {
 
-                Log.d("===ItemVo.getLng()===", "" + ItemVo.getLng());
-                Log.d("===ItemVo.getLat()===", "" + ItemVo.getLat());
+                Log.d("=DaumItemVo.getLng()=", "" + daumItemVo.getLng());
+                Log.d("=DaumItemVo.getLat()=", "" + daumItemVo.getLat());
 
                 Intent intent = ((AddressListActivity) context).getIntent();
-                intent.putExtra("title", ItemVo.getTitle());
-                intent.putExtra("lng", "" + ItemVo.getLng());
-                intent.putExtra("lat", "" + ItemVo.getLat());
+                intent.putExtra("title", daumItemVo.getTitle());
+                intent.putExtra("lng", "" + daumItemVo.getLng());
+                intent.putExtra("lat", "" + daumItemVo.getLat());
 
                 ((AddressListActivity) context).setResult(((AddressListActivity) context).RESULT_OK, intent);
                 ((AddressListActivity) context).finish();
@@ -70,8 +69,8 @@ public class AddressListArrayAdapter extends ArrayAdapter<ItemVo> {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, SearchToMapActivity.class);
-                intent.putExtra("lng", "" + ItemVo.getLng());
-                intent.putExtra("lat", "" + ItemVo.getLat());
+                intent.putExtra("lng", "" + daumItemVo.getLng());
+                intent.putExtra("lat", "" + daumItemVo.getLat());
                 context.startActivity(intent);
             }
         });
@@ -79,12 +78,12 @@ public class AddressListArrayAdapter extends ArrayAdapter<ItemVo> {
         return view;
     }
 
-    public void add(List<ItemVo> itemVos) {
-        if (itemVos == null || itemVos.size() == 0) {
+    public void add(List<DaumItemVo> daumItemVos) {
+        if (daumItemVos == null || daumItemVos.size() == 0) {
             return;
         }
-        for (ItemVo itemVo : itemVos) {
-            add(itemVo);
+        for (DaumItemVo daumItemVo : daumItemVos) {
+            add(daumItemVo);
         }
         //add에 이미 있음
         //notifyDataSetChanged();

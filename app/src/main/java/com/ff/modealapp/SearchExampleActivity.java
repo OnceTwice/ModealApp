@@ -1,6 +1,7 @@
 package com.ff.modealapp;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,20 +15,22 @@ import com.ff.modealapp.maps.SearchShopToPointActivity;
 
 public class SearchExampleActivity extends AppCompatActivity {
 
+    public static Activity FinishSearchExampleActivity;
     String range = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FinishSearchExampleActivity = SearchExampleActivity.this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_example);
 
         if(this.getIntent() != null){
-            Intent mapIntent = new Intent(this.getIntent());
-            ((TextView) findViewById(R.id.textView_address)).setText(mapIntent.getStringExtra("title"));
-            ((TextView) findViewById(R.id.textView_longitude)).setText(mapIntent.getStringExtra("lng"));
-            ((TextView) findViewById(R.id.textView_latitude)).setText(mapIntent.getStringExtra("lat"));
+            Intent setIntent = new Intent(this.getIntent());
+                    ((TextView) findViewById(R.id.textView_address)).setText(setIntent.getStringExtra("title"));
+            ((TextView) findViewById(R.id.textView_longitude)).setText(setIntent.getStringExtra("lng"));
+            ((TextView) findViewById(R.id.textView_latitude)).setText(setIntent.getStringExtra("lat"));
         }
+
 
         findViewById(R.id.button_findAddress).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,4 +99,5 @@ public class SearchExampleActivity extends AppCompatActivity {
             //Toast.makeText(MainActivity.this, "REQUEST_ACT가 아님", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

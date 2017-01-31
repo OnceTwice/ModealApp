@@ -47,10 +47,7 @@ public class JoinFormActivity extends AppCompatActivity {
         findViewById(R.id.button_rangeform).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent2 = new Intent(JoinFormActivity.this, SearchExampleActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-
                 startActivity(intent2);
             }
         });

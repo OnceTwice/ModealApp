@@ -1,6 +1,6 @@
 package com.ff.modealapp.vo;
 
-public class ItemVo {
+public class DaumItemVo {
 
     private String mountain;
     private String mainAddress;
@@ -185,12 +185,27 @@ public class ItemVo {
 
     @Override
     public String toString() {
-        return "ItemVo [mountain=" + mountain + ", mainAddress=" + mainAddress + ", point_wx=" + point_wx
-                + ", point_wy=" + point_wy + ", isNewAddress=" + isNewAddress + ", buildingAddress=" + buildingAddress
-                + ", title=" + title + ", placeName=" + placeName + ", zipcode=" + zipcode + ", newAddress="
-                + newAddress + ", localName_2=" + localName_2 + ", localName_3=" + localName_3 + ", localName_1="
-                + localName_1 + ", lat=" + lat + ", point_x=" + point_x + ", lng=" + lng + ", zone_no=" + zone_no
-                + ", subAddress=" + subAddress + ", id=" + id + ", point_y=" + point_y + "]";
+        return "DaumItemVo{" +
+                "mountain='" + mountain + '\'' +
+                ", mainAddress='" + mainAddress + '\'' +
+                ", point_wx='" + point_wx + '\'' +
+                ", point_wy='" + point_wy + '\'' +
+                ", isNewAddress='" + isNewAddress + '\'' +
+                ", buildingAddress='" + buildingAddress + '\'' +
+                ", title='" + title + '\'' +
+                ", placeName='" + placeName + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                ", newAddress='" + newAddress + '\'' +
+                ", localName_2='" + localName_2 + '\'' +
+                ", localName_3='" + localName_3 + '\'' +
+                ", localName_1='" + localName_1 + '\'' +
+                ", lat=" + lat +
+                ", point_x=" + point_x +
+                ", lng=" + lng +
+                ", zone_no='" + zone_no + '\'' +
+                ", subAddress='" + subAddress + '\'' +
+                ", id='" + id + '\'' +
+                ", point_y=" + point_y +
+                '}';
     }
-
 }

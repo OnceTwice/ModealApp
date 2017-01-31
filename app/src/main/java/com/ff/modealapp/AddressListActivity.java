@@ -11,7 +11,7 @@ import com.ff.modealapp.listformat.AddressListArrayAdapter;
 import com.ff.modealapp.network.SafeAsyncTask;
 import com.ff.modealapp.service.MapsService;
 import com.ff.modealapp.vo.AddressVo;
-import com.ff.modealapp.vo.ItemVo;
+import com.ff.modealapp.vo.DaumItemVo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,13 +58,13 @@ public class AddressListActivity extends ListActivity {
 
         @Override
         protected void onSuccess(AddressVo addressVo) throws Exception {
-            List<ItemVo> itemVos = new ArrayList<>();
+            List<DaumItemVo> daumItemVos = new ArrayList<>();
             for (int i = 0; i < addressVo.getChannel().getItem().size(); i++) {
-                itemVos.add(i, addressVo.getChannel().getItem().get(i));
-                Log.d(i + 1 + "번째", "" + itemVos.get(i));
+                daumItemVos.add(i, addressVo.getChannel().getItem().get(i));
+                Log.d(i + 1 + "번째", "" + daumItemVos.get(i));
             }
             super.onSuccess(addressVo);
-            addressListArrayAdapter.add(itemVos);
+            addressListArrayAdapter.add(daumItemVos);
         }
     }
 }

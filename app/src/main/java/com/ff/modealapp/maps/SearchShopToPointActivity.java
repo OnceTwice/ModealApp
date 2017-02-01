@@ -23,9 +23,11 @@ import net.daum.mf.map.api.MapView;
 
 import java.util.List;
 
-public class SearchShopToPointActivity extends AppCompatActivity {
+public class SearchShopToPointActivity extends AppCompatActivity implements MapView.MapViewEventListener {
     Double longitude;
     Double latitude;
+    String range;
+    MapCircle circle;
     private MapsService mapsService = new MapsService();
     private MapView mapView;
 
@@ -37,7 +39,7 @@ public class SearchShopToPointActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getIntent());
         longitude = Double.valueOf(intent.getStringExtra("longitude"));
         latitude = Double.valueOf(intent.getStringExtra("latitude"));
-        String range = intent.getStringExtra("range");
+        range = intent.getStringExtra("range");
 
         Log.d("longitude=====>", "" + longitude);
         Log.d("latitude=====>", "" + latitude);
@@ -50,25 +52,65 @@ public class SearchShopToPointActivity extends AppCompatActivity {
 
         mapView = new MapView(this);
         mapView.setDaumMapApiKey(MapApiConst.DAUM_MAPS_ANDROID_APP_API_KEY);
-        //mapView.addCircle();
 
-        // ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view_point);
-        // mapViewContainer.addView(mapView);
         RelativeLayout container = (RelativeLayout) findViewById(R.id.map_view_point);
-        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);
-        container.addView(mapView);
-
-        MapCircle circle = new MapCircle(
+        circle = new MapCircle(
                 MapPoint.mapPointWithGeoCoord(latitude, longitude),
                 Integer.valueOf(range),
                 Color.argb(25, 255, 0, 0),
-                Color.argb(25, 255, 0, 0));
+                Color.argb(25, 255, 0, 0)
+        );
         circle.setTag(1234);
         mapView.addCircle(circle);
-        //mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);
-        //mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(Double.valueOf(longitude), Double.valueOf(latitude)), 2, true);
+
+        container.addView(mapView);
 
         new FetchShopListAsyncTask().execute();
+    }
+
+    @Override
+    public void onMapViewInitialized(MapView mapView) {
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(latitude, longitude), true);
+    }
+
+    @Override
+    public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewZoomLevelChanged(MapView mapView, int i) {
+
+    }
+
+    @Override
+    public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewDoubleTapped(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewLongPressed(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewDragStarted(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewDragEnded(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
+
     }
 
     private class FetchShopListAsyncTask extends SafeAsyncTask<List<ShopVo>> {
@@ -118,8 +160,6 @@ public class SearchShopToPointActivity extends AppCompatActivity {
             poiItem.setCustomImageAnchor(0.5f, 1.0f);
 
             mapView.addPOIItem(poiItem);
-            //tagItemMap.put(poiItem.getTag(), shopVoList);
-
         }
 
         mapView.moveCamera(CameraUpdateFactory.newMapPointBounds(mapPointBounds));

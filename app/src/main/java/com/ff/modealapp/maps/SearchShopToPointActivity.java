@@ -54,6 +54,7 @@ public class SearchShopToPointActivity extends AppCompatActivity implements MapV
         mapView.setDaumMapApiKey(MapApiConst.DAUM_MAPS_ANDROID_APP_API_KEY);
 
         RelativeLayout container = (RelativeLayout) findViewById(R.id.map_view_point);
+
         circle = new MapCircle(
                 MapPoint.mapPointWithGeoCoord(latitude, longitude),
                 Integer.valueOf(range),
